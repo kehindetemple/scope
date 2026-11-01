@@ -39,6 +39,14 @@ first with their real icons, and the box is slightly see-through.
 Scope runs in the background after you close the dashboard. Start it again and
 the dashboard opens instead of a second copy.
 
+**Starts with Windows.** The first time Scope runs as administrator, it creates
+a Task Scheduler task named `Scope`. The task starts Scope at every sign-in,
+with administrator rights, and keeps it running on battery power. At sign-in
+the dashboard stays hidden and only the hotkey is ready, as with Raycast. To turn
+this off, set `"startupDisabled": true` in `settings.json` and start Scope once;
+Scope then deletes the task. The task only exists when Scope runs as
+administrator, because it must run with administrator rights.
+
 ---
 
 ## Using Scope
@@ -345,6 +353,9 @@ The dashboard is the only normal window. It has:
   Ctrl + Space. If Windows keeps the combination (for example Win + L) or
   another app already uses it, the dashboard reports that and keeps the old
   hotkey.
+- **Win key as hotkey.** Scope sends a neutral key the moment Win goes down, so
+  Windows Start does not open on top of Scope. The search box opens on every
+  press, not only some of them.
 - **Light / Dark.** Switches the theme for the search box and the dashboard.
 - **Colours.** Ready-made swatches, **Auto**, or **Custom** (a colour picker)
   for the search field and the results box.
